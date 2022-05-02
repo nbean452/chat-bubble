@@ -1,11 +1,32 @@
-# chat-bubble
+# Chat Bubble
 
-# CURRENTLY IN DEVELOPMENT!
+# **CURRENTLY IN DEVELOPMENT!**
+
+Access the website [here](https://chat-bubble.herokuapp.com)
 
 # What the project does
-User can chat with other users in a room
+This web application provides a community for users to chat with others regarding a relevant topic.
+inspired by **reddit**.
+
+<!-- # Example gif showcasing the website application
+![value](link) -->
+
 # Why the project is useful
-This project is made to improve my knowledge of web technologies
+This project is made to improve my skills of web app development. I'll be working on backend and frontend using knowledge I've learned from past projects.
+
+# Todo List
+This is a list of functions I'm planning to implement for this project. Some functions are finished while some aren't finished yet (it is still in development!) *more tasks will be added along the development process!*
+- [X] Create database and relations within each tables
+- [ ] Splitting each routes, models into different python files over one *app.py* (better understanding of the project)
+- [X] User account creation
+- [X] Password hashing for each user
+- [ ] Captcha during login and register process
+- [ ] Forgot password feature
+- [X] Create new rooms
+- [ ] HTML layout for each page 
+- [ ] CSS, and Js for each page
+- [ ] Chat feature using **SocketIO**
+ 
 # How users can get started with the project
 1. Open a command terminal!
 2. Navigate to the root directory of the project
@@ -14,8 +35,16 @@ This project is made to improve my knowledge of web technologies
 5. Type **.env\Scripts\activate**
 6. Type **flask run**
 7. Enjoy using the website!
-# Where users can get help with your project
-Contact me through nicholasb1537@gmail.com
-# Who maintains and contributes to the project
-This project's contributor:
-* **nicb112**
+
+# Where users can get help with this project
+Contact me through [my email](mailto:nicholasb1537@gmail.com)
+
+# Development tools used
+* Flask (Web Framework using Python)
+* HTML
+* CSS
+* JS
+* SQLite3
+
+# Contributor
+* nicb112
