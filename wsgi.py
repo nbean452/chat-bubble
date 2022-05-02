@@ -7,4 +7,4 @@ handler = flask_app.create_app()
 if __name__ == '__main__':
     # Entry point when run via Python interpreter.
     # print("== Running in debug mode ==")
-    flask_app.create_app().run(host='0.0.0.0', port=5000, debug=True)
+    flask_app.create_app().run(debug=True)

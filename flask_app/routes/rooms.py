@@ -65,11 +65,11 @@ def open(roomname):
 
 
 
-@rooms.errorhandler(HTTPException)
-def error(e):
-    if e.code<400:
-        return e
-    elif e.code>=500:
-        print(e)
-    return render_template('error404.html')
+# @rooms.errorhandler(HTTPException)
+# def error(e):
+#     if e.code<400:
+#         return e
+#     elif e.code>=500:
+#         print(e)
+#     return render_template('error404.html')
 
