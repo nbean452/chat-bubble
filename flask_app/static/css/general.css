@@ -1,0 +1,10 @@
+/* saving the colors for future uses */
+:root{
+    --main-color:#45BAA1;
+    --second-color:#4599BA;
+    --third-color:#45BA66;
+}
+
+* {
+    /* background-color: aqua; */
+}

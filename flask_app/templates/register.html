@@ -11,6 +11,10 @@
 <body>
     <h1>Register Page</h1>
 
+    <a href="{{url_for(root.index)}}">Back to home</a>
+    <a href="{{url_for(root.login)}}">Already have an account?</a>
+
+    <!-- For each error in the form, display the errors! -->
     {% for field, errors in form.errors.items() %}
     <p class="error-msg">{{ form[field].label }}: {{ ', '.join(errors) }}</p>
     {% endfor %}

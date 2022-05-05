@@ -10,12 +10,19 @@
 
 <body>
     <h1>Welcome to Chat Bubble!</h1>
+    <h2>Currently in development!</h2>
     <ul>
         <li>
             <a href="{{url_for('root.register')}}">Register a new account</a>
         </li>
         <li>
             <a href="{{url_for('root.login')}}">Login</a>
+        </li>
+        <li>
+            <a href="{{url_for('user.index')}}">Goto User Profiles!</a>
+        </li>
+        <li>
+            <a href="{{url_for('room.index')}}">Goto Rooms</a>
         </li>
     </ul>
 </body>

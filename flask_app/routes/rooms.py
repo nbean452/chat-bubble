@@ -10,7 +10,7 @@ rooms = Blueprint('rooms', __name__, url_prefix='/r')
 
 @rooms.route('/')
 def index():
-    return "index for rooms"
+    return render_template("rooms_index.html")
 
 # @rooms.route('/create', defaults=)
 @rooms.route('/create')
