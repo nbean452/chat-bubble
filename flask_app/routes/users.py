@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, render_template, url_for
+from flask_login import login_required
 from werkzeug.exceptions import HTTPException
 from ..models.user import User
 from ..models.chat import Chat
@@ -13,6 +14,7 @@ def index():
     return render_template('user_index.html')
 
 @users.route('/<string:username>')
+@login_required
 def profile(username):
     user=User(username, username+"@mail.com", username)
     db.session.add(user)

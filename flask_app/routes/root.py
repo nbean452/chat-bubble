@@ -2,7 +2,7 @@ from ..models.input_field import LoginForm, RegisterForm
 from flask import Blueprint, render_template, redirect, url_for
 from werkzeug.exceptions import HTTPException
 from ..models.user import User 
-from flask_login import login_user
+from flask_login import current_user, login_required, login_user, logout_user
 from ..extensions import db, bcrypt
 
 root = Blueprint('root', __name__)
@@ -31,6 +31,12 @@ def login():
             return render_template('login.html', form=form, msg=msg)
 
     return render_template('login.html', form=form)
+
+@root.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('root.index'))
 
 @root.route('/register', methods=['GET', 'POST'])
 def register():

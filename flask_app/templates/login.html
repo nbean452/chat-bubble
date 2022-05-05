@@ -11,8 +11,8 @@
 <body>
     <h1>User Login</h1>
 
-    <a href="{{url_for(root.index)}}">Back to home</a>
-    <a href="{{url_for(root.register)}}">Don't have an account?</a>
+    <a href="{{url_for('root.index')}}">Back to home</a>
+    <a href="{{url_for('root.register')}}">Don't have an account?</a>
 
     <!-- for each error in the form, display the errors -->
     {% for field, errors in form.errors.items() %}
