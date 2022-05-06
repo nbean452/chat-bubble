@@ -8,13 +8,15 @@ from ..extensions import db
 
 rooms = Blueprint('rooms', __name__, url_prefix='/r')
 
+# TODO, remove this file later!
 @rooms.route('/')
 def index():
-    return render_template("rooms_index.html")
+    return render_template("rooms-index.html")
 
 # @rooms.route('/create', defaults=)
 @rooms.route('/create')
 def create():
+    # code snippet below is for testing the web application
     room=Room('testing')
     room.users.append(User.query.filter_by(username='nicho').first())
     db.session.add(room)
@@ -23,6 +25,7 @@ def create():
 
 @rooms.route('/join/<roomname>')
 def join(roomname):
+    # code snippet below is for testing the web application
     room = Room.query.filter_by(name=roomname).first()
     room.users.append(User.query.filter_by(username='john').first())
     room.users.append(User.query.filter_by(username='steve').first())
@@ -31,6 +34,7 @@ def join(roomname):
 
 @rooms.route('/<roomname>')
 def open(roomname):
+    # code snippet below is for testing the web application
     # return "opening room " + str(id) + "!"
     room = Room.query.filter_by(name=roomname).first()
     user=User.query.filter_by(username='nicho').first()

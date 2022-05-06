@@ -5,38 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Chat Bubble</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/general.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/input-field.css')}}">
 </head>
 
 <body>
-    <h1>User Login</h1>
+    <div class="header">
+        <h1>User Login Page</h1>
+    </div>
 
+    <!-- TODO, move the links later! -->
     <a href="{{url_for('root.index')}}">Back to home</a>
     <a href="{{url_for('root.register')}}">Don't have an account?</a>
 
-    <!-- for each error in the form, display the errors -->
-    {% for field, errors in form.errors.items() %}
-    <p class="error-msg">{{ form[field].label }}: {{ ', '.join(errors) }}</p>
-    {% endfor %}
-    <!-- no action needed, however 'POST' method is important -->
-    <form action="" method="post">
-        {{form.hidden_tag()}}
+    <div class="form-container">
+        <!-- for each error in the form, display the errors -->
+        {% for field, errors in form.errors.items() %}
+        <p class="error-msg">{{ form[field].label }}: {{ ', '.join(errors) }}</p>
+        {% endfor %}
+        <!-- no action needed, however 'POST' method is important -->
+        <form action="" method="post">
+            {{form.hidden_tag()}}
 
-        <!-- username -->
-        <label for="username">Username</label>
-        {{form.username}} <br><br>
+            <!-- username -->
+            <label for="username">Username</label>
+            {{form.username}} <br><br>
 
-        <!-- password -->
-        <label for="password">Password</label>
-        {{form.password}}<br><br>
+            <!-- password -->
+            <label for="password">Password</label>
+            {{form.password}}<br><br>
 
-        <!-- button to show or hide the inputted password -->
-        <input type="checkbox" name="show-password" onclick="show_password('password')">
-        <label for="show_password">Show Password</label> <br><br>
+            <!-- button to show or hide the inputted password -->
+            <input type="checkbox" name="show-password" onclick="show_password('password')">
+            <label for="show_password">Show Password</label> <br><br>
 
-        <!-- submit button-->
-        {{form.submit}}
-    </form>
+            <!-- submit button-->
+            {{form.submit}}
+        </form>
+    </div>
 
     <!-- script for hiding and showing the password field -->
     <script src="{{url_for('static', filename='js/show_password.js')}}"></script>

@@ -27,3 +27,19 @@ class LoginForm(FlaskForm):
     password = PasswordField(validators=[InputRequired(), Length(
         min=4, max=20)], render_kw={"placeholder": "Password"})
     submit = SubmitField("Login")
+
+
+class ChatForm(FlaskForm):
+    message = StringField(validators=[InputRequired()],
+        render_kw={"placeholder": "Message..."})
+    # TODO, change "Send" to a "greater than" symbol
+    submit = SubmitField("Send")
+
+    # TODO, might want to check the function below later!
+    def validate_message(self, message):
+        if message.data == "":
+            raise ValidationError(
+                "Message is empty! Please enter a message."
+            )
+
+    # https://www.geeksforgeeks.org/flask-form-submission-without-page-reload/

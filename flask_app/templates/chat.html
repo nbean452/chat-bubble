@@ -5,10 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Room {{room_data.name}}</title>
+    <title>Chat Bubble</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/general.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/chat.css')}}">
 </head>
 
 <body>
+    <div class="header">
+        <!-- TODO, add username's name and relevant info -->
+        <h1>Chats</h1>
+        <a href="{{url_for('root.logout')}}">Log out</a>
+    </div>
+
+    <!-- TODO, add both for-loop inside these div, think of line messages! -->
+
+    <div class="main-container">
+        <div class="chat-list">
+
+        </div>
+        <div class="chat-container">
+    
+        </div>
+    </div>
+    
 
 </body>
 

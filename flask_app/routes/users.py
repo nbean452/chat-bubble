@@ -9,9 +9,10 @@ from ..extensions import db
 
 users = Blueprint('users', __name__, url_prefix='/u')
 
+# TODO, remove later!
 @users.route('/')
 def index():
-    return render_template('user_index.html')
+    return render_template('user-index.html')
 
 @users.route('/<string:username>')
 @login_required

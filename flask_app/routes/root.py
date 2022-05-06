@@ -1,4 +1,4 @@
-from ..models.input_field import LoginForm, RegisterForm
+from ..models.input_field import LoginForm, RegisterForm, ChatForm
 from flask import Blueprint, render_template, redirect, url_for
 from werkzeug.exceptions import HTTPException
 from ..models.user import User 
@@ -9,6 +9,11 @@ root = Blueprint('root', __name__)
 
 @root.route('/')
 def index():
+    # different template for authorized and unauthorized users
+    if current_user.authorized:
+        room = Room.query.filter_by()
+        chat_form = ChatForm()
+        return render_template('chat.html', chat_form=chat_form)
     return render_template('index.html')
 
 @root.route('/login', methods=['GET', 'POST'])
@@ -52,6 +57,7 @@ def register():
 
     return render_template('register.html', form=form)
 
+# TODO, add error handler later!
 # @root.errorhandler(HTTPException)
 # def error(e):
 #     if e.code<400:

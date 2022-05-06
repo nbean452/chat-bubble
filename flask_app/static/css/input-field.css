@@ -1,0 +1,18 @@
+/* put all the css required so that the input field are organized */
+
+.form-container{
+    width: 40%;
+    margin: 20px auto;
+
+    /* add padding later or margin! */
+}
+
+#username,
+#email,
+#password,
+#submit{
+    width: 100%;
+    
+    /* add padding later! */
+    /* padding: ; */
+}

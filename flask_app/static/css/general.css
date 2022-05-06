@@ -1,10 +1,49 @@
+/* google fonts */
+/* 
+font-family: 'Monoton', cursive;
+font-family: 'Ubuntu', sans-serif; 
+*/
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Ubuntu:wght@400;700&display=swap');
+
 /* saving the colors for future uses */
 :root{
     --main-color:#45BAA1;
     --second-color:#4599BA;
     --third-color:#45BA66;
+    --text-color:#103346;
+    --text-highlight-color:#9193ff;
 }
 
 * {
-    /* background-color: aqua; */
+    background-color: var(--main-color);
+    font-family: 'Ubuntu', sans-serif;
+    
+    /* for easier layout organization */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: fit-content;
+    margin: 20px auto;
+    background-color: var(--second-color);
+}
+
+#header-text {
+    font-family: 'Monoton', cursive;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    color: var(--text-color);
+}
+
+a:hover{
+    color: var(--text-highlight-color);
 }
