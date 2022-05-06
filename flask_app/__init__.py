@@ -10,11 +10,15 @@ def create_app():
     # instantiate Flask object named 'app', this variable is important!
     app=Flask(__name__)
 
-    # database directory
+    # set environment variable
+    ENV='dev'
+
     if ENV=='dev':
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+        # set database to connect to the local PostgreSQL 'chat-bubble' database
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/chat-bubble'
         app.debug=True
     else:
+        # set database to connect to Heroku PostgreSQL dataabase
         app.config['SQLALCHEMY_DATABASE_URI'] = ''
         app.debug=False
 

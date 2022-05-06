@@ -5,7 +5,7 @@ from .user import User
 
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(
-        min=4, max=20)], render_kw={"placeholder": "Username"})
+        min=4, max=30)], render_kw={"placeholder": "Username"})
     email = StringField(validators=[InputRequired(), Length(max=30)],
         render_kw={"placeholder": "Email"})
     password = PasswordField(validators=[InputRequired(), Length(
