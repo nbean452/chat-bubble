@@ -6,22 +6,29 @@ font-family: 'Ubuntu', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Ubuntu:wght@400;700&display=swap');
 
 /* saving the colors for future uses */
-:root{
-    --main-color:#45BAA1;
-    --second-color:#4599BA;
-    --third-color:#45BA66;
-    --text-color:#103346;
-    --text-highlight-color:#9193ff;
+:root {
+    --main-color: #81a346;
+    --second-color: #374028;
+    --third-color: #9bba65;
+    --fourth-color: #8fba45;
+    --fifth-color: #5e9401;
+    --text-color: #103346;
+    --text-highlight-color: #0b78a3;
 }
 
 * {
     background-color: var(--main-color);
     font-family: 'Ubuntu', sans-serif;
-    
+    text-align: center;
+    color: var(--text-color);
+
     /* for easier layout organization */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    /* debugging purpose */
+    border: 1px solid black;
 }
 
 .header {
@@ -34,16 +41,24 @@ font-family: 'Ubuntu', sans-serif;
     font-family: 'Monoton', cursive;
 }
 
-ul{
+ul {
     list-style-type: none;
 }
 
-a{
+a {
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     color: var(--text-color);
 }
 
-a:hover{
+a:hover {
     color: var(--text-highlight-color);
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: greenyellow;
 }

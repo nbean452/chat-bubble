@@ -11,7 +11,13 @@ def create_app():
     app=Flask(__name__)
 
     # database directory
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+    if ENV=='dev':
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+        app.debug=True
+    else:
+        app.config['SQLALCHEMY_DATABASE_URI'] = ''
+        app.debug=False
+
 
     # silence cmd pop-ups when running the app
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

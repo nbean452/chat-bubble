@@ -21,6 +21,15 @@
 
     <div class="form-container">
         <!-- for each error in the form, display the errors -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for category, message in messages %}
+            <li class="{{category}}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         {% for field, errors in form.errors.items() %}
         <p class="error-msg">{{ form[field].label }}: {{ ', '.join(errors) }}</p>
         {% endfor %}

@@ -1,5 +1,5 @@
 from ..models.input_field import LoginForm, RegisterForm, ChatForm
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, flash
 from werkzeug.exceptions import HTTPException
 from ..models.user import User 
 from flask_login import current_user, login_required, login_user, logout_user
@@ -10,8 +10,8 @@ root = Blueprint('root', __name__)
 @root.route('/')
 def index():
     # different template for authorized and unauthorized users
-    if current_user.authorized:
-        room = Room.query.filter_by()
+    if current_user.is_authenticated:
+        # room = Room.query.filter_by()
         chat_form = ChatForm()
         return render_template('chat.html', chat_form=chat_form)
     return render_template('index.html')
@@ -20,20 +20,14 @@ def index():
 def login():
     form = LoginForm()
 
-    msg = ""
-
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        if user:
-            if bcrypt.check_password_hash(user.password, form.password.data):
-                login_user(user)
-                return redirect(url_for('users.index'))
-            else:
-                msg = "Username / Password is incorrect."
-                return render_template('login.html', form=form, msg=msg)
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user)
+            return redirect(url_for('users.index'))
         else:
-            msg = "Username / Password is incorrect."
-            return render_template('login.html', form=form, msg=msg)
+            flash('Username/ Password incorrect', 'error')
+            return render_template('login.html', form=form)
 
     return render_template('login.html', form=form)
 
@@ -53,6 +47,7 @@ def register():
         new_user = User(form.username.data, form.email.data, hashed_password)
         db.session.add(new_user)
         db.session.commit()
+        flash('Account creation successful!', 'success')
         return redirect(url_for('root.login'))
 
     return render_template('register.html', form=form)
