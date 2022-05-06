@@ -4,11 +4,11 @@ from ..extensions import db
 class Chat(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     msg = db.Column(db.Text, nullable=False)
-    sender_username = db.Column(db.String(30), db.ForeignKey('user.username'))
+    sender_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     date = db.Column(db.DateTime, default=datetime.now(), nullable=False)
-    room_name=db.Column(db.String(20), db.ForeignKey('room.name'))
+    room_id=db.Column(db.Integer, db.ForeignKey('room.id'))
 
-    def __init__(self, msg, sender_username, room_name):  
+    def __init__(self, msg, sender_id, room_id):  
         self.msg=msg
-        self.sender_username=sender_username
-        self.room_name=room_name
+        self.sender_id=sender_id
+        self.room_id=room_id

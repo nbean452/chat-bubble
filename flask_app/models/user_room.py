@@ -1,6 +1,6 @@
 from ..extensions import db
 
 user_room = db.Table('user_room',
-db.Column('user_name', db.String, db.ForeignKey('user.username')),
-db.Column('room_name', db.String, db.ForeignKey('room.name')))
+db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+db.Column('room_id', db.Integer, db.ForeignKey('room.id')))
 

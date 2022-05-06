@@ -37,25 +37,26 @@ def open(roomname):
     # code snippet below is for testing the web application
     # return "opening room " + str(id) + "!"
     room = Room.query.filter_by(name=roomname).first()
+    print('works')
     user=User.query.filter_by(username='nicho').first()
-    chat=Chat(msg='hello there!', sender_username=user.username, room_name=room.name)
+    chat=Chat('hello there!', user.id, room.id)
 
-    # room.chats.append(chat)
+    room.chats.append(chat)
     #     # def __init__(self, msg, sender_username, date, room_name):  
     #     # self.msg=msg
     #     # self.sender_username=sender_username
     #     # self.date=date
     #     # self.room_name=room_name
-    # db.session.add(chat)
-    # db.session.commit()
+    db.session.add(chat)
+    db.session.commit()
 
-    # return {"user1": room.users[0].username,
-    # "user2": room.users[1].username,
-    # "user3": room.users[2].username,
-    # "chat1": room.chats[0].msg,
-    # "chat1sender": room.chats[0].sender.username,
-    # "chat1room": room.chats[0].room.id,
-    # "chat1date": room.chats[0].date}
+    return {"user1": room.users[0].username,
+    "user2": room.users[1].username,
+    "user3": room.users[2].username,
+    "chat1": room.chats[0].msg,
+    "chat1sender": room.chats[0].sender.username,
+    "chat1room": room.id,
+    "chat1date": room.chats[0].date}
     # it works!
 
     # test={}
@@ -65,7 +66,7 @@ def open(roomname):
     # for i in range(0,len(room.users[0].rooms)):
     #     test[room.users[0].username+'\'s room ' + str(i+1)]=room.users[0].rooms[i].name
     # return test
-    return render_template('chat.html', room_data=room)
+    # return render_template('chat.html', room_data=room)
 
 
 

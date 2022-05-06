@@ -4,6 +4,10 @@ from wtforms.validators import InputRequired, Length, ValidationError
 from .user import User
 
 class RegisterForm(FlaskForm):
+    f_name = StringField(validators=[InputRequired(), Length(
+        min=4, max=30)], render_kw={"placeholder": "First Name"})
+    l_name = StringField(validators=[InputRequired(), Length(
+        min=4, max=30)], render_kw={"placeholder": "Last Name"})
     username = StringField(validators=[InputRequired(), Length(
         min=4, max=30)], render_kw={"placeholder": "Username"})
     email = StringField(validators=[InputRequired(), Length(max=30)],

@@ -2,7 +2,7 @@
 
 # **CURRENTLY IN DEVELOPMENT!**
 
-Access the website [here](https://chat-bubble.herokuapp.com)
+<!-- Access the website [here](https://chat-bubble.herokuapp.com) -->
 
 # What the project does
 This web application provides a community for users to chat with others regarding a relevant topic.

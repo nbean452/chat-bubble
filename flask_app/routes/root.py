@@ -46,7 +46,8 @@ def register():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         print(hashed_password)
         print(len(hashed_password))
-        new_user = User(form.username.data, form.email.data, hashed_password)
+        new_user = User(form.f_name.data, form.l_name.data,
+        form.username.data, form.email.data, hashed_password)
         db.session.add(new_user)
         db.session.commit()
         flash('Account creation successful!', 'success')
