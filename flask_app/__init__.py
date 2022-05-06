@@ -19,7 +19,7 @@ def create_app():
         app.debug=True
     else:
         # set database to connect to Heroku PostgreSQL dataabase
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jbxduiwvgfwoiv:8c83375b1eb65c31bd5329f07b33fbc697deae23de0b105247d5040c9fad8519@ec2-52-4-104-184.compute-1.amazonaws.com:5432/d7ffgkoacv6lcq'
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://jbxduiwvgfwoiv:8c83375b1eb65c31bd5329f07b33fbc697deae23de0b105247d5040c9fad8519@ec2-52-4-104-184.compute-1.amazonaws.com:5432/d7ffgkoacv6lcq'
         app.debug=False
 
 
