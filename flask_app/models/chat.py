@@ -12,3 +12,6 @@ class Chat(db.Model):
         self.msg=msg
         self.sender_id=sender_id
         self.room_id=room_id
+
+    def __repr__(self):
+        return f'id: {self.id}, msg: {self.msg}, sender id: {self.sender_id}, date: {self.date}, room id: {self.room_id}'

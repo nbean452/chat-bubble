@@ -10,3 +10,6 @@ class Room(db.Model):
 
     def __init__(self, name):  
         self.name=name
+    
+    def __repr__(self):
+        return f'id: {self.id}, name: {self.name}, date: {self.date}'

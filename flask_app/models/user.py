@@ -19,3 +19,6 @@ class User(db.Model, UserMixin):
         self.username=username
         self.email=email
         self.password=password
+    
+    def __repr__(self):
+        return f'user id: {self.id}, username: {self.username}, email: {self.email}, status msg: {self.status_msg}'
